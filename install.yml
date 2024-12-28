@@ -1,0 +1,25 @@
+---
+- name: My Test Playbook
+  hosts: webservers
+  become: true
+  tasks:
+  - name: install git package
+    yum:
+      name: git
+      state: installed
+
+  - name: install tree package
+    yum:
+      name: tree  
+      state: installed
+
+  - name: install httpd package
+    yum:
+      name: httpd
+      state: installed
+
+  - name: start httpd service
+    service:
+      name: httpd
+      state: started
+

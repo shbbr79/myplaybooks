@@ -1,0 +1,25 @@
+---
+- name: My Test Playbook
+  hosts: webservers
+  become: true
+  tasks:
+  - name: remove git package
+    yum:
+      name: git
+      state: removed
+
+  - name: remove tree package
+    yum:
+      name: tree
+      state: removed
+
+  - name: Stop httpd Service
+    service:
+      name: httpd
+      state: stopped
+
+  - name: remove httpd service
+    yum:
+      name: httpd
+      state: removed
+
